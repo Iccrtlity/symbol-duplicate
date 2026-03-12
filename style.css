@@ -69,6 +69,8 @@ input:focus { border-color: #7b5ea7; }
 #symbol-input { flex: 0 0 auto; width: 88px; font-size: 1.4rem; text-align: center; }
 #count-input  { flex: 1; }
 
+.count-label { flex: 1; }
+
 #output {
   background: #12121a;
   border: 1px solid #2e2e44;
