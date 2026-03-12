@@ -116,6 +116,13 @@ button:active { transform: scale(0.97); }
 
 #copy-btn:hover { opacity: 0.8; }
 
+#reverse-btn {
+  background: #2e2e44;
+  color: #c8b6ff;
+}
+
+#reverse-btn:hover { opacity: 0.8; }
+
 #copy-btn.copied {
   background: #2a4a2a;
   color: #7dda7d;
