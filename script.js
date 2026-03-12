@@ -3,15 +3,36 @@ const countInput = document.getElementById('count-input');
 const output = document.getElementById('output');
 const generateBtn = document.getElementById('generate-btn');
 const copyBtn = document.getElementById('copy-btn');
+const reverseBtn = document.getElementById('reverse-btn');
+
+function getSymbol() {
+  return symbolInput.value || '★';
+}
+
+function getCount() {
+  return Math.min(Math.max(parseInt(countInput.value, 10) || 1, 1), 10000);
+}
+
+function setOutput(text) {
+  output.textContent = text;
+}
+
+function getOutput() {
+  return output.textContent;
+}
 
 function generate() {
-  const symbol = symbolInput.value || '★';
-  const count = Math.min(Math.max(parseInt(countInput.value, 10) || 1, 1), 10000);
-  output.textContent = symbol.repeat(count);
+  setOutput(getSymbol().repeat(getCount()));
+}
+
+function reverseOutput() {
+  const text = getOutput();
+  if (!text) return;
+  setOutput([...text].reverse().join(''));
 }
 
 function copyOutput() {
-  const text = output.textContent;
+  const text = getOutput();
   if (!text) return;
 
   navigator.clipboard.writeText(text)
@@ -33,6 +54,7 @@ function copyOutput() {
 
 generateBtn.addEventListener('click', generate);
 copyBtn.addEventListener('click', copyOutput);
+reverseBtn.addEventListener('click', reverseOutput);
 symbolInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') generate();
 });
